@@ -69,11 +69,15 @@ class RPSTournament:
         print('Total Rounds Played: %s' % str(self.num_rounds))
         print("%s's wins: %s. Win Ratio: %s%%" % (self.p1.name, str(self.p1.num_wins), str(self.p1.num_wins / self.num_rounds * 100)))
         print("%s's wins: %s. Win Ratio: %s%%" % (self.p2.name, str(self.p2.num_wins), str(self.p2.num_wins / self.num_rounds * 100)))
+        print("There were %s ties" % str(self.num_rounds - self.p1.num_wins - self.p2.num_wins))
         if self.p1.num_wins == self.p2.num_wins:
             print("\nIt was a tie!  Congratulations to both %s and %s!" % (self.p1.name, self.p2.name))
         else:
             print("\nOur winner is...")
-            print("%s!" % str(max(self.p1.num_wins, self.p2.num_wins)))
+            if self.p1.num_wins > self.p2.num_wins:
+                print("%s!" % self.p1.name)
+            else:
+                print("%s!" % self.p2.name)
         
         if self.extra_stats:
             print("\n+~+~+~+~+~+~+~+~+~+~+~+~+~+~+")
